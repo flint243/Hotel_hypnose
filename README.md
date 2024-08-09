@@ -13,14 +13,15 @@ obligatoirement sur place.
 
 # Préparation et organisation (méthode agile)
 ● Trello
+  Canva
 
 # Maquettage, Wireframe et charte graphique
 ● Figma 
 
 # Matériel  : VS Code
 ● Langages Front :  ( HTML5, CSS3, JS )
-● Langages Back :  (Ex : MYSQL, Phpmyadmin, PHP 8.3 avec PDO)
-● Framework :  (Bootstrap, Symfony 7)
+● Langages Back :  ( MYSQL, Phpmyadmin, PHP 8.3 avec PDO )
+● Framework :  ( Bootstrap, Symfony 7 )
 ● Containerisation et déploiement: ( Docker )
 
 
@@ -40,15 +41,15 @@ Pour le back :
 ● Symfony
 ● MySQL
 ● Firebase
+  Postman
 
 # Méthode MERISE 
-
-# Réaliser avec le logiciel...
+Réaliser avec le logiciel...
 . Diagramme de Cas d'utilisation
-
 . Diagrammes de Séquence
-
 . Diagramme de Classe
+
+
 
 # Vesionning et sauvegarde
 ● Github
