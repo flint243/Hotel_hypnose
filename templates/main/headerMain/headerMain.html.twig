@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+                {% block stylesheets %}
+                    <link rel="stylesheet" href="{{ asset('/css/header/header.css') }}"/>
+                {% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <header class="row border border-dark-bottom-solid-1px">
+        <img src="{{ asset('img/PARIS/caption.jpg') }}">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="#">Hotel Hypnose</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Listing</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="animateGroup d-flex mb-auto justify-content-center">
+            <h1 class="text-light">Contactez-nous</h1>
+            <div class="cadreBouton">
+                <button class="btn btn-success">Commencez</button>
+            </div>
+        </div>
+     </header>
+</div>
+{% endblock %}
