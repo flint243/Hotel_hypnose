@@ -1,1 +1,166 @@
-<h1>HELLO VISITES PARIS</h1>
+{% extends 'base.html.twig' %}
+
+				{% block title %}
+					Accueil | Hôtel Hypnose Paris
+				{% endblock %}
+
+                {% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+<!--==============================header=================================-->
+		<header>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="menu_block">
+						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+							<ul class="sf-menu">
+								<li><a href="/">Accueil</a></li>
+								<li><a href="/paris">Paris</a></li>
+								<li class="current"><a href="visites">Visites</a></li>
+								<li><a href="/paris/listing">Listing</a></li>
+								<li><a href="/paris/blog">Blog</a></li>
+								<li><a href="/paris/contact">Contact</a></li>
+							</ul>
+						</nav>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="grid_12">
+					<h1>
+						<a href="/">
+							<img src="" alt="Your Happy Family">
+						</a>
+					</h1>
+				</div>
+			</div>
+			<img src="{{ asset('img/PARIS/caption.jpg') }}" class="imgHeader" alt="">
+		</header>
+<!--==============================Content=================================-->
+		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+			<div class="container_12">
+				<div class="banners">
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px" alt="">
+							<div class="label">
+								<div class="title">NEW ZEALAND</div>
+								<div class="price">from<span>$ 1.200</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">GOA</div>
+								<div class="price">from<span>$ 1.500</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">FRANCE</div>
+								<div class="price">from<span>$ 1.600</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">CANADA</div>
+								<div class="price">from<span>$ 2000</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">TURKEY</div>
+								<div class="price">from<span>$ 1.500</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">EGYPT</div>
+								<div class="price">from<span>$ 1.500</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">JAPAN</div>
+								<div class="price">from<span>$ 1000</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">BRAZIL</div>
+								<div class="price">from<span>$ 1.700</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="socials">
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-twitter"></a>
+						<a href="#" class="fa fa-google-plus"></a>
+					</div>
+					<div class="copy">
+						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		
+
+    {% endblock %}
+
+
+{% block javascripts %}
+
+		<script>
+		$(function (){
+			$('#bookingForm').bookingForm({
+				ownerEmail: '#'
+			});
+		})
+		</script>
+
+		<script>
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	
+{% endblock %}
+	
