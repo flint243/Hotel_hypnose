@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
 				{% block title %}
-					Accueil | Hôtel Hypnose Paris
+					Visites | Hôtel Hypnose Paris
 				{% endblock %}
 
-                {% block stylesheets %}{% endblock %}
+                {% block stylesheets %}
+				<link rel="stylesheet" href="{{ asset('/css/paris/visitesParis.css') }}">
+				{% endblock %}
 
 
 {% block body %}
@@ -18,7 +20,6 @@
 								<li><a href="/">Accueil</a></li>
 								<li><a href="/paris">Paris</a></li>
 								<li class="current"><a href="visites">Visites</a></li>
-								<li><a href="/paris/listing">Listing</a></li>
 								<li><a href="/paris/blog">Blog</a></li>
 								<li><a href="/paris/contact">Contact</a></li>
 							</ul>
@@ -29,12 +30,12 @@
 				<div class="grid_12">
 					<h1>
 						<a href="/">
-							<img src="" alt="Your Happy Family">
+							<img src="{{ asset('img/logo.png') }}" alt="Your Happy Family">
 						</a>
 					</h1>
 				</div>
+				
 			</div>
-			<img src="{{ asset('img/PARIS/caption.jpg') }}" class="imgHeader" alt="">
 		</header>
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>

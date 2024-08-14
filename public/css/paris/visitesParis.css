@@ -279,7 +279,7 @@ a.btn:hover {
 
 header {
 	display: block;
-    background: url(/assets/./img/PARIS/caption.jpg) center 0 repeat-x;
+    background-image: url(/pont.jpg) center 0 repeat-x;
     -webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
     -ms-background-size: 100% auto;
@@ -287,6 +287,13 @@ header {
     background-size: 100% auto;
     padding-bottom: 98px;
 }
+
+/*
+.imgHeader{
+    position: absolute;
+    top:0px;
+}
+*/
 
 .page1 header {
     background: none;
