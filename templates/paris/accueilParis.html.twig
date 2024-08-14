@@ -9,40 +9,90 @@
 
 				<link rel="stylesheet" href="{{ asset('/css/paris/camera.css') }}">
 				<link rel="stylesheet" href="{{ asset('/css/paris/owl.carousel.css') }}">
+				<link rel="stylesheet" href="{{ asset('/css/paris/icomoon.css') }}">
+				<link rel="stylesheet" href="{{ asset('/css/paris/superfish.css') }}">
+				<link rel="stylesheet" href="{{ asset('/css/paris/animate.css') }}">
+				<link rel="stylesheet" href="{{ asset('/css/paris/skeleton.css') }}">
+				<link rel="stylesheet" href="{{ asset('/css/paris/reset.css') }}">
 				{% endblock %}
 
 {% block body %}
 <header>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="menu_block">
-						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-							<ul class="sf-menu">
-								<li><a href="/">Accueil</a></li>
-								<li class="current"><a href="/paris">Paris</a></li>
-								<li><a href="/paris/visites">Visites</a></li>
-								<li><a href="/paris/blog">Blog</a></li>
-								<li><a href="/paris/contact">Contact</a></li>
-							</ul>
-						</nav>
-						<div class="clear"></div>
-					</div>
+	<div id="insideHeader" class="headerClass">
+                <div id="titre" class="headerTitre">
+                    <h1>Hôtel Hypnose</h1>
 				</div>
-				{#<div class="grid_12">
-					<h1>
-						<a href="index.html">
-							<img src="images/logo.png" alt="Your Happy Family">
-						</a>
-					</h1>
-				</div>#}
+                <div id="menuParis" class="headerClass">
+                    <ul>
+                        <a href="/">
+                            <li>Accueil</li>
+                        </a>
+						<a href="/paris">
+                            <li class="current">Paris</li>
+                        </a>
+                        <a href="/paris/visites">
+                            <li>visites</li>
+                        </a>
+                        <a href="/paris/blog">
+                            <li>Blog</li>
+                        </a>
+						<a href="/paris/contact">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+                <!-- START OF THE TOGGLE -->
+                <div class="container_hamburger">
+                    <input id="toggle" type="checkbox"></input>
+
+                    <label for="toggle" class="hamburger">
+                        <div class="top-bun"></div>
+                        <div class="meat"></div>
+                        <div class="bottom-bun"></div>
+                    </label>
+
+                    <div class="navToggle">
+                        <div class="navToggle-wrapper">
+                            <div id="menuToggle">
+                                <a href="/">Accueil</a><br>
+                                <a href="/paris">Paris</a><br>
+                                <a href="/paris/visites">Visites</a><br>
+								<a href="/paris/blog">Blog</a><br>
+								<a href="/paris/contact">Contact</a><br><br>
+                                <div id="reza">
+                                    <div id="btReza" class="btn btn-success">Réservez votre table</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF THE TOGGLE -->
 			</div>
+        </div>
 <!--  SLIDER1 -->
     <div id="stage">
-      <a href="#"><h1 class="titreSlide1">Bienvenue dans notre magnifique Palace</h1><img src="{{ asset('/img/PARIS/caption.jpg') }}" width="100%" height="100%"></a>
+      <a href="#"><h1>Bordeaux</h1>
+	  <div class="mesPrix">
+		<p>A partir de</p><br>
+	  	<button class="prix btn btn-danger">Prix 1550$</button>
+	 </div>
+	  <img src="{{ asset('/img/PARIS/caption.jpg') }}" width="100%" height="100%"></a>
       
-      <a href="#"><h1 class="titreSlide1">LIVANHOTEL<br> bien plus qu'une experience hotelière</h1><img src="{{ asset('/img/PARIS/colonnes.jpg') }}" width="100%" height="100%"></a>
+      <a href="#"><h1>Lyon</h1>
+	  <div class="mesPrix">
+		<p>A partir de</p><br>
+	  	<button class="prix btn btn-danger">Prix 1550$</button>
+	 </div>
+	  <img src="{{ asset('/img/PARIS/colonnes.jpg') }}" width="100%" height="100%"></a>
       
-      <a href="#"><h1 class="titreSlide1">Chez nous vos moindres désirs sont réalisés</h1><img src="{{ asset('/img/PARIS/image.jpg') }}" width="100%" height="100%"></a>
+      <a href="#"><h1>Nice</h1>
+	  <div class="mesPrix">
+		<p>A partir de</p><br>
+	  	<button class="prix btn btn-danger">Prix 1550$</button>
+	 </div>
+	  <img src="{{ asset('/img/PARIS/image.jpg') }}" width="100%" height="100%"></a>
     </div>
 <!--  FIN SLIDER1 -->			
 		</header>
