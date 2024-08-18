@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ContactLyonController extends AbstractController
 {
-        #[Route('/contact')]
+        #[Route('/lyon/contact')]
         public function Contact_Lyon(): Response
         {
             return $this->render('lyon/contactLyon.html.twig');

@@ -1,1 +1,147 @@
-<h1>HELLO ACCUEIL LYON</h1>
+{% extends 'base.html.twig' %}
+
+				{% block title %}
+					Blog | Hôtel Hypnose Paris
+				{% endblock %}
+
+                {% block stylesheets %}
+				<link rel="stylesheet" href="{{ asset('/css/paris/blogParis.css') }}">
+
+				<link rel="stylesheet" href="{{ asset('/css/paris/camera.css') }}">
+				<link rel="stylesheet" href="{{ asset('/css/paris/owl.carousel.css') }}">
+				{% endblock %}
+
+{% block body %}
+
+<header>
+			<div id="insideHeader" class="headerClass">
+                <div id="headerTitre" class="headerTitre">
+                    <h1>Hôtel Hypnose</h1>
+				</div>
+                <div id="menuParis" class="headerClass">
+                    <ul>
+                        <a href="/">
+                            <li>Accueil</li>
+                        </a>
+						<a href="/paris">
+                            <li class="current">Paris</li>
+                        </a>
+                        <a href="/paris/visites">
+                            <li>visites</li>
+                        </a>
+                        <a href="/paris/blog">
+                            <li>Blog</li>
+                        </a>
+						<a href="/paris/contact">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+                <!-- START OF THE TOGGLE -->
+                <div class="container_hamburger">
+                    <input id="toggle" type="checkbox"></input>
+
+                    <label for="toggle" class="hamburger">
+                        <div class="top-bun"></div>
+                        <div class="meat"></div>
+                        <div class="bottom-bun"></div>
+                    </label>
+
+                    <div class="navToggle">
+                        <div class="navToggle-wrapper">
+                            <div id="menuToggle">
+                                <a href="/">Accueil</a><br>
+                                <a href="/paris">Paris</a><br>
+                                <a href="/paris/visites">Visites</a><br>
+								<a href="/paris/blog">Blog</a><br>
+								<a href="/paris/contact">Contact</a><br><br>
+                                <div id="reza">
+                                    <div id="btReza" class="btn btn-success">Réservez votre visite</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF THE TOGGLE -->
+			</div>
+        </div>
+		</header>
+<!--==============================Content=================================-->
+		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+			<div class="container_12">
+				<div class="grid_7">
+					<h3>Posts Récents</h3>
+					<div class="blog">
+						<time datetime="2014-10-01">15<span>Feb</span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1"><a href="#">uamnibh Edet Mertolo numi</a></div>Posté par
+							<a href="#">Fred</a>
+						</div>
+						<div class="clear"></div>
+						<img src="{{ asset('img/PARIS/caption.jpg')}}" alt="" class="img_inner">
+						<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
+						<br>
+						<a href="#" class="link1">Lire la suite...</a>
+					</div>
+					<div class="blog">
+						<time datetime="2014-10-01">17<span>Feb</span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1"><a href="#">ERh EMertlo numolo</a></div>Posté par
+							<a href="#">Charlène</a>
+						</div>
+						<div class="clear"></div>
+						<img src="{{ asset('img/PARIS/caption.jpg')}}" alt="" class="img_inner">
+						<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
+						<br>
+						<a href="#" class="link1">Lire la suite...</a>
+					</div>
+				</div>
+				<div class="grid_3 prefix_1">
+					<h3 class="head1">catégories</h3>
+					<ul class="list">
+						<li><a href="#">Suspendisse massa mi </a></li>
+						<li><a href="#">Porttitor at velit id </a></li>
+						<li><a href="#">Congue adipiscing </a></li>
+						<li><a href="#">Vestibulum vitae porta </a></li>
+						<li><a href="#">Vivamus ac sodales </a></li>
+						<li><a href="#">Massa quis adipiscing </a></li>
+						<li><a href="#">Phasellus hendrerit </a></li>
+						<li><a href="#">Libero in sapien </a></li>
+						<li><a href="#">Dignissim vel imperdiet </a></li>
+					</ul>
+					<h3 class="head1">Archives</h3>
+					<ul class="list">
+						<li><a href="#">November 2013</a></li>
+						<li><a href="#">October 2013</a></li>
+						<li><a href="#">September 2013</a></li>
+						<li><a href="#">August 2013</a></li>
+						<li><a href="#">July 2013</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="socials">
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-twitter"></a>
+						<a href="#" class="fa fa-google-plus"></a>
+					</div>
+					<div class="copy">
+						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script>
+		$(function (){
+			$('#bookingForm').bookingForm({
+				ownerEmail: '#'
+			});
+		})
+		</script>
+    {% endblock %}

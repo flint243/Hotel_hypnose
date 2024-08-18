@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Controller\marseilles;
+namespace App\Controller\marseille;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class ListingMarseillesController extends AbstractController
+class ListingMarseilleController extends AbstractController
 {
         #[Route('/listing')]
         public function Listing_Marseilles(): Response
         {
-            return $this->render('marseilles/ListingMarseilles.html.twig');
+            return $this->render('marseille/ListingMarseille.html.twig');
         }
 
 }

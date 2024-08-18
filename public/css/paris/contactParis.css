@@ -285,39 +285,6 @@ header {
     padding-bottom: 98px;
 }
 
-.page1 header {
-    background: none;
-    position: absolute;
-    left: 0;
-    z-index: 999;
-    right: 0;
-    top: 0;
-    padding-bottom: 0;
-}
-
-header h1 {
-	position: relative;
-	text-align: center;
-}
-
-
-header h1 a {
-	display: inline-block;
-	overflow: hidden;
-	width: 190px;
-    height: 57px;
-	font-size: 0;
-	line-height: 0;
-	
-	text-indent: -999px;
-	transition: 0s ease;
-	-o-transition: 0s ease;
-	-webkit-transition: 0s ease;
-}
-header h1 a img {
-	display: block;
-}
-
 /*-------------------------HIDE MENU MOBILE TOGGLE----------------------------*/
 .container_hamburger {
     background: #33619387;
@@ -435,27 +402,31 @@ header h1 a img {
 }
 
 
-#titre{
+#headerTitre h1{
     width: auto;
     height: auto;
     position: relative;
-    color:  #f07306;
-    -webkit-text-stroke: 1px #ffffff51;
+    color: white;
     padding: 15px;
     margin: 3px;
-    background-color:#d9ddd95d;
 }
 
 #menuParis ul{
     position: absolute;
-    right: 0px;
-    top: 10%;
+    right: 10px;
+    padding: 10px;
+    background-color: rgb(240, 93, 93);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-ul a li{
+  a li{
     position: relative;
+    margin: 2px;
+    padding-left: 20px;
     padding-right: 20px;
     display: inline-block;
     text-decoration: none;
+    text-align: center;
 }
 
 /********************* RESPONSIVE *****************************/
@@ -464,7 +435,17 @@ ul a li{
 @media screen and (max-width: 425px){/*425px*/
    
     header{
-        height: 200px;
+        height: 400px;
+    }
+    #stage{
+        height: 400px;
+    }
+    #stage h1{
+        font-size: 2rem;
+        top: 100px;
+    }
+    .mesPrix{
+        top: 180px;
     }
     #titre{
         display: none;

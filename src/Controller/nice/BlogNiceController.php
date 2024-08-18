@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BlogNiceController extends AbstractController
 {
-        #[Route('/blog')]
+        #[Route('/nice/blog')]
         public function BlogNice(): Response
         {
             return $this->render('nice/blogNice.html.twig');

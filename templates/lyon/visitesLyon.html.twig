@@ -1,1 +1,196 @@
-<h1>HELLO VISITES LYON</h1>
+{% extends 'base.html.twig' %}
+
+				{% block title %}
+					Visites | Hôtel Hypnose Paris
+				{% endblock %}
+
+                {% block stylesheets %}
+				<link rel="stylesheet" href="{{ asset('/css/paris/visitesParis.css') }}">
+				{% endblock %}
+
+
+{% block body %}
+<!--==============================header=================================-->
+		<header>
+			<div id="insideHeader" class="headerClass">
+                <div id="headerTitre" class="headerTitre">
+                    <h1>Hôtel Hypnose</h1>
+				</div>
+                <div id="menuParis" class="headerClass">
+                    <ul>
+                        <a href="/">
+                            <li>Accueil</li>
+                        </a>
+						<a href="/lyon">
+                            <li class="current">Lyon</li>
+                        </a>
+                        <a href="/lyon/visites">
+                            <li>visites</li>
+                        </a>
+                        <a href="/lyon/blog">
+                            <li>Blog</li>
+                        </a>
+						<a href="/lyon/contact">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+                <!-- START OF THE TOGGLE -->
+                <div class="container_hamburger">
+                    <input id="toggle" type="checkbox"></input>
+
+                    <label for="toggle" class="hamburger">
+                        <div class="top-bun"></div>
+                        <div class="meat"></div>
+                        <div class="bottom-bun"></div>
+                    </label>
+
+                    <div class="navToggle">
+                        <div class="navToggle-wrapper">
+                            <div id="menuToggle">
+                                <a href="/">Accueil</a><br>
+                                <a href="/lyon">Lyon</a><br>
+                                <a href="/lyon/visites">Visites</a><br>
+								<a href="/lyon/blog">Blog</a><br>
+								<a href="/lyon/contact">Contact</a><br><br>
+                                <div id="reza">
+                                    <div id="btReza" class="btn btn-success">Réservez votre table</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF THE TOGGLE -->
+			</div>
+        </div>
+		</header>
+<!--==============================Content=================================-->
+		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+			<div class="container_12">
+				<div class="banners">
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px" alt="">
+							<div class="label">
+								<div class="title">TROCADERO</div>
+								<div class="price">A partir de<span>200</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">LES CHAMPS ELYSEES</div>
+								<div class="price">A partir de <span>100</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">LE MUSEE DU LOUVRE</div>
+								<div class="price">A partir de<span>150</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">L'ORANGERIE</div>
+								<div class="price">A partir de<span>200</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">LE PALAIS DE L'ELYSEE</div>
+								<div class="price">A partir de<span>300</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">LE FAUBOURG SAINT GERMAIN</div>
+								<div class="price">A partir de<span>100</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">LE SACRE COEUR</div>
+								<div class="price">A partir de<span>50</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="banner">
+							<img src="{{ asset('img/PARIS/caption.jpg') }}" width="300px" height="364px"  alt="">
+							<div class="label">
+								<div class="title">LE MOULIN ROUGE</div>
+								<div class="price">A partir de<span>700</span></div>
+								<a href="#">LEARN MORE</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="socials">
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-twitter"></a>
+						<a href="#" class="fa fa-google-plus"></a>
+					</div>
+					<div class="copy">
+						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		
+
+    {% endblock %}
+
+
+{% block javascripts %}
+
+		<script>
+		$(function (){
+			$('#bookingForm').bookingForm({
+				ownerEmail: '#'
+			});
+		})
+		</script>
+
+		<script>
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	
+{% endblock %}
+	

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ContactNiceController extends AbstractController
 {
-        #[Route('/contact')]
+        #[Route('/nice/contact')]
         public function Contact_Nice(): Response
         {
             return $this->render('nice/contactNice.html.twig');
