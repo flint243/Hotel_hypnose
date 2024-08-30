@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+	{% extends 'base.html.twig' %}
 
 				{% block title %}
 					Accueil | Hôtel Hypnose
@@ -6,24 +6,24 @@
 
                 {% block stylesheets %}
 	
-{% endblock %}
+	{% endblock %}
 
 
 {% block body %}
 	{#{{ include('main/headerMain/headerMain.html.twig') }}#}
-		<div id="fh5co-wrapper">
-		<div id="fh5co-page">
+<div id="fh5co-wrapper">
+	<div id="fh5co-page">
 		<div id="fh5co-header">
 			<header id="fh5co-header-section">
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="/">Hôtel Hypnose</a></h1>
+						<h1 id="fh5co-logo"><a href="Accueil">Hôtel Hypnose</a></h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li class="active">
-									<a href="/">Accueil</a>
+									<a href="Accueil">Accueil</a>
 								</li>
 								<li>
 									<a href="listing" class="fh5co-sub-ddown">Listing</a>
@@ -40,11 +40,107 @@
 							</ul>
 						</nav>
 					</div>
+
+								{####################   LOGIN SYSTEM AREA   #########################}
+							{% if app.user is empty %}
+					<div class="contentLogin p-1">
+						<button class="btn-small rounded bg-warning"><a href="{{ path('app_register') }}">Logon</a></button>
+							<button class="btn-small rounded bg-success connexionIci">Login</button>
+							
+							 {% else %}
+							<div class="col-sm-4 p-1 ensembleConnection">
+							<div class="col p-2 alert-primary ensembleConnectionIn rounded">
+							<div class="loginVisuel mt-5 bg-warning"{{ app.username }}</div>
+
+								{#{% if app.user.filename %}
+									<a href="{{ path('users_photo_modifier') }}">
+										<img class="col mt-1 photo_user" src="/images/properties/{{ app.user.filename }}" width="40px" height="35px">
+									</a>
+												{% else %}
+									<a href="{{ path('users_photo_modifier') }}">
+										<img class="col mt-1 photo_user" src="/MES_IMAGES/logo_header/user_default.jpg" width="40px" height="35px">
+									</a>
+								{% endif %}#}
+									
+									<button class="mt-1 btn btn-danger p-1" id="deconnexion" type="submit">
+										<a href="{#{{ path('app_logout') }}#}">Déconnexion</a>
+									</button>
+									
+							</div>
+						</div>
+							{% endif %}
+					</div>
+		
+					{% if is_granted('ROLE_SUPER_ADMIN') %}
+						<div class="superAdmin">
+							<div class="col">
+								<button class="btn btn-danger adminDash"><a href="{{ path('admin') }}">Dashboard-Admin</a></button>
+							</div>
+					{% endif %}
+
+					<div id="toggle_hamburger">
+						<label for="hamburger">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+									<path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/>
+								</svg>
+						</label>
+								<input type="checkbox" id="hamburger"/>
+						<div id="menuToggle">
+							<ul>
+								{#	{% if is_granted('ROLE_ADMIN') %}
+								<li><a href="{{ path('admin') }}"><font color="green">Dashboard</font></a></li>
+									{% endif %}
+								<li><a href="{{ path('accueil') }}">Accueil</a> </li>
+									{% if is_granted('ROLE_USER') %}
+								<li class="bg-warning rounded"><a href="{{ path('createPost') }}"><font color="white">Crééz un article</font></a></li>
+									{% endif %}
+								<li><a href="{{ path('afficheArticles') }}">Forum & discussion</a></li>
+								<li><a href="{{ path('emploi') }}">Emplois & formations</a></li>
+								<li><a href="{{ path('loi') }}">Reglementation & legislation</a></li>
+								#}
+							</ul>
+
+								{#} BUOTONS TOGGLE {#}
+								{% if app.user is empty %}
+							<div class="col">
+								<button class="btn btn-success connexionIciToggle">Connectez-vous ici</button>
+							</div>
+								{% else %}
+							<button class="col m-1 btn btn-danger p-1" id="deconnexionToggle" type="submit">
+								{#<a href="{{ path('app_logout') }}">Déconnexion</a>#}
+							</button>
+								{% endif %}
+								{#} FIN BOUTONS TOGGLE {#}
+						</div>
+					</div>
 				</div>
 			</header>
+	</div>
+		
+		{# ENSEMBLE MODALE #}
+		<div class="col-sm-3 p-3 alert-secondary rounded ensembleModal">
+			<div class="col mb-1 px-2 rounded alert-danger closeLogin">X</div>
+			<h5 class="col mb-3 text-center text-success">Login</h5>
+
+				<form class="forme" method="post">
+					<div class="col">
+						<input type="email" value="" name="email" placeholder="Votre adresse e-mail" class="form-control" autocomplete="email" required autofocus>
+						<input type="password" name="password" placeholder="Votre mot de passe" class="form-control mt-2" autocomplete="current-password" required>
+						{#<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">#}
+						<button class="btn btn-lg btn-primary p-1 m-1 mt-3" id="connexion" type="submit">Connexion</button>
+					</div>
+				</form>
+			
+				<small>
+					{#
+					<a class="col text-danger" href="{{ path('app_forgot_pass') }}">
+						Mot de passe oublié?
+					</a>
+					#}
+				</small>
 		</div>
-		
-		
+			{# FIN MODALE #}
+
 		<div class="fh5co-hero">
 			<div class="fh5co-overlay"></div>
 			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{ asset('img/PARIS/caption.jpg') }});">
@@ -55,7 +151,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div class="fh5co-listing">
 			<div class="container">
@@ -72,7 +167,7 @@
 						</a>
 					</div>
 					<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-						<a class="fh5co-listing-item" href="/bordeaux">>
+						<a class="fh5co-listing-item" href="/bordeaux">
 							<img src="{{ asset('img/BORDEAUX/centre.jpg') }}" width="420px" height="445px" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 							<div class="fh5co-listing-copy">
 								<h2>Bordeaux</h2>
@@ -83,7 +178,7 @@
 						</a>
 					</div>
 					<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-						<a class="fh5co-listing-item" href="/lyon">>
+						<a class="fh5co-listing-item" href="/lyon">
 							<img src="{{ asset('img/LYON/passerelle.jpg') }}" width="420px" height="445px" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 							<div class="fh5co-listing-copy">
 								<h2>Lyon</h2>
@@ -96,7 +191,7 @@
 					<!-- END 3 row -->
 
 					<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-						<a class="fh5co-listing-item" href="/nice">>
+						<a class="fh5co-listing-item" href="/nice">
 							<img src="{{ asset('img/NICE/vue.webp') }}" width="420px" height="445px" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 							<div class="fh5co-listing-copy">
 								<h2>Nice</h2>
@@ -107,8 +202,8 @@
 						</a>
 					</div>
 					<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-						<a class="fh5co-listing-item" href="/marseille">>
-							<img src="{{ asset('img/MARSEILLE/marches.jpg') }}" width="420px" height="420px" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
+						<a class="fh5co-listing-item" href="/marseille">
+							<img src="{{ asset('img/MARSEILLE/marches.jpg') }}" width="420px" height="445px" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 							<div class="fh5co-listing-copy">
 								<h2>Marseille</h2>
 								<span class="icon">
@@ -122,7 +217,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div class="fh5co-section">
 			<div class="container">
@@ -179,15 +273,16 @@
 				</div>
 			</div>
 		</footer>
-	
-
 	</div>
 	<!-- END fh5co-page -->
-
-	</div>
+</div>
 	<!-- END fh5co-wrapper -->
-
 	{% block javascripts %}{% endblock %}
 
-	{#{{ include('main/footerMain/footerMain.html.twig') }}#}
+	
+		<script src="{{ asset('/js/modalClass.js') }}"></script>
+		<script src="{{ asset('/js/modalClassBarr.js') }}"></script>
+	
 {% endblock %}
+
+

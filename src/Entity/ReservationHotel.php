@@ -15,6 +15,9 @@ class ReservationHotel
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column]
+    private ?string $Nom = null;
+
     public function getId(): ?int
     {
         return $this->id;

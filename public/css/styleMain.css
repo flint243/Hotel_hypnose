@@ -477,10 +477,10 @@
   }
   
   #fh5co-menu-wrap {
-    position: relative;
+    position: absolute;
     z-index: 2;
     display: block;
-    float: right;
+    right: 6%;
     margin-top: 15px;
   }
   #fh5co-menu-wrap .sf-menu a {
@@ -609,6 +609,49 @@
   #fh5co-primary-menu .fh5co-sub-menu a:hover {
     color: #264E86 !important;
   }
+
+/*************  TOGGLE_HAMBURGER MENU / MODAL  ************/
+
+    #toggle_hamburger{
+      width:auto;
+      height: 0px;
+      position:absolute;
+      right:0px;
+      top:0px;
+      display:none;
+      background-color: #8899eefe;
+      z-index:15;
+      }
+
+      .contentLogin{
+        position: absolute;
+        right: 15px;
+        margin-top: 20px;
+      }
+
+      .superAdmin{
+        position: absolute;
+      }
+
+      #veuillez{
+        width:auto;
+        height:auto;
+        position:absolute;
+        top:3px;
+        right:1px;
+         box-shadow: 0px 0px 15px 10px rgb(45, 44, 44);
+        }
+
+      .ensembleModal{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(139, 0, 139, 0.473);
+        display: none;
+        z-index: 100;
+      }
+
+/*************  FIN TOGGLE_HAMBURGER MENU  ************/
   
   .heading-section {
     padding-bottom: 1em;

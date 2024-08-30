@@ -11,6 +11,9 @@ class ReservationHotelType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $builder
+            ->add('Nom')
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

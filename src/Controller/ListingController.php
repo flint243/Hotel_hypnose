@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ListingController extends AbstractController
 {
-        #[Route('/listing')]
+        #[Route('/listing', name: 'Listing')]
         public function listing(): Response
         {
             return $this->render('main/listing.html.twig');
