@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-/*use Psr\Log\LoggerInterface;*/
 use App\Security\EmailVerifier;
 use App\Service\SendEmailService;
 use App\Form\RegistrationFormType;
@@ -14,6 +13,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -70,20 +70,19 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/verify/email/{token}', name: 'app_verify_email')]
-    #[Route("/confirmer-mon-compte/{token}", name: "confirme_compte")]
-    public function confirmEmail(string $token): Response
+    #[Route('/confirmer-mon-compte/{token}', name: 'confirme_compte')]
+    #[Route('/Verifier-email/{token}', name: 'app_verify_email')]
+    public function confirmEmail(string $token): RedirectResponse
     {
-        $user = $this->userRepository->findOneBy(["token" => $token]);
+        $user = $this->userRepository->findOneBy(['token' => $token]);
 
         if ($user) {
-            $user->setToken(null);
+            $user->setToken(null);  // Suppression du token après confirmation
             $user->setIsVerified(true);
-
             $this->em->persist($user);
             $this->em->flush();
 
-            $this->addFlash('message', "Compte actif !");
+            $this->addFlash('message', 'Compte activé !');
             return $this->redirectToRoute('accueil');
         }
 
@@ -97,6 +96,7 @@ class RegistrationController extends AbstractController
      */
     private function generateToken(): string
     {
-        return md5(uniqid());
+        return bin2hex(random_bytes(32));
     }
 }
+

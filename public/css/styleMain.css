@@ -1,12 +1,14 @@
-/*
 @font-face {
-    font-family: 'icomoon';
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx");
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
-    font-weight: normal;
-    font-style: normal;
-  }
-    */
+      font-family: 'fontawesome';
+      src: url("../ccs/fontawesome/webfonts/fa-brands-400.ttf");
+      src: url("../css/fontawesome/webfonts/fa-brands-400.woff2");
+      src: url("../css/fontawesome/webfonts/fa-regular-400.ttf");
+      src: url("../css/fontawesome/webfonts/fa-regular-400.woff2");
+      src: url("../css/fontawesome/webfonts/fa-solid-900.ttf");
+      src: url("../css/fontawesome/webfonts/fa-solid-900.woff2");
+      font-weight: normal;
+      font-style: normal;
+    } 
   /* =======================================================
   *
   * 	Template Style 
@@ -494,7 +496,7 @@
   }
   #fh5co-primary-menu > li > .sf-with-ul:after {
     border: none !important;
-    font-family: 'icomoon';
+    font-family: 'fontawesome';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -509,7 +511,7 @@
     margin-right: -5px;
     top: 50%;
     margin-top: -7px;
-    content: "\e922";
+    content: "\f078";
     color: rgba(255, 255, 255, 0.5);
   }
   #fh5co-primary-menu > li > ul li {
