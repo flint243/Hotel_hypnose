@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+                {% block title %}
+					LogOut | hotel hypnose
+				{% endblock %}
+
+				{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+    {% for messageBye in app.flashes('messageBye') %}
+        <h3 class="p-2 m-1 text-center text-danger alert-success rounded-2 logOnSuccess">
+            {{messageBye}}
+        </h3>
+    {% endfor %}
+
+        <div class="row m-5 justify-content-center">
+            <span class="col-sm-5 mt-5 p-5 h1 display-5 alert-primary shadow-lg text-center text-danger rounded">
+                Merci de votre visite, <br>à bientôt...
+            </span>
+        </div>
+
+{% endblock %}

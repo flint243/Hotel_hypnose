@@ -10,7 +10,11 @@
 
 
 {% block body %}
-	{#{{ include('main/headerMain/headerMain.html.twig') }}#}
+
+	{% if error %}
+			<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	{% endif %}
+
 <div id="fh5co-wrapper">
 	<div id="fh5co-page">
 		<div id="fh5co-header">
@@ -18,12 +22,12 @@
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="Accueil">Hôtel Hypnose</a></h1>
+						<h1 id="fh5co-logo"><a href="/">Hôtel Hypnose</a></h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li class="active">
-									<a href="Accueil">Accueil</a>
+									<a href="/">Accueil</a>
 								</li>
 								<li>
 									<a href="listing" class="fh5co-sub-ddown">Listing</a>
@@ -45,13 +49,14 @@
 							{% if app.user is empty %}
 					<div class="contentLogin p-1">
 						<button class="btn-small rounded bg-warning"><a href="{{ path('app_register') }}">Logon</a></button>
-							<button class="btn-small rounded bg-success connexionIci">Login</button>
+							<button class="btn-small rounded bg-success connexionIci"><a href="{{ path('app_login') }}">Login</a></button>
 							
 							 {% else %}
 							<div class="col-sm-4 p-1 ensembleConnection">
 							<div class="col p-2 alert-primary ensembleConnectionIn rounded">
-							<div class="loginVisuel mt-5 bg-warning"{{ app.username }}</div>
-
+							<div class="loginVisuel justify-content-center">
+								<div class="loginName">{{ app.user }}</div>
+							
 								{#{% if app.user.filename %}
 									<a href="{{ path('users_photo_modifier') }}">
 										<img class="col mt-1 photo_user" src="/images/properties/{{ app.user.filename }}" width="40px" height="35px">
@@ -62,19 +67,17 @@
 									</a>
 								{% endif %}#}
 									
-									<button class="mt-1 btn btn-danger p-1" id="deconnexion" type="submit">
-										<a href="{#{{ path('app_logout') }}#}">Déconnexion</a>
-									</button>
+										<a href="{{ path('app_logout') }}" class="mt-1 btn btn-danger p-1" id="deconnexion" type="submit">Déconnexion</a>
 									
 							</div>
 						</div>
 							{% endif %}
 					</div>
 		
-					{% if is_granted('ROLE_SUPER_ADMIN') %}
-						<div class="superAdmin">
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="Admin">
 							<div class="col">
-								<button class="btn btn-danger adminDash"><a href="{{ path('admin') }}">Dashboard-Admin</a></button>
+								<button class="btn btn-danger adminDash"><a href="{#{{ path('admin') }}#}">Dashboard-Admin</a></button>
 							</div>
 					{% endif %}
 
@@ -122,14 +125,20 @@
 			<div class="col mb-1 px-2 rounded alert-danger closeLogin">X</div>
 			<h5 class="col mb-3 text-center text-success">Login</h5>
 
-				<form class="forme" method="post">
-					<div class="col">
-						<input type="email" value="" name="email" placeholder="Votre adresse e-mail" class="form-control" autocomplete="email" required autofocus>
-						<input type="password" name="password" placeholder="Votre mot de passe" class="form-control mt-2" autocomplete="current-password" required>
-						{#<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">#}
-						<button class="btn btn-lg btn-primary p-1 m-1 mt-3" id="connexion" type="submit">Connexion</button>
-					</div>
-				</form>
+				<form action="{{ path('app_login') }}" method="post">
+					<label for="username">Email:</label>
+					<input type="text" id="username" name="_username" value="{{ last_username }}" required>
+
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="_password" required>
+
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="https://127.0.0.1:8000/Accueil" value="{{ path('Accueil') }}"> #}
+
+        <button type="submit">login</button>
+    </form>
 			
 				<small>
 					{#
@@ -147,13 +156,13 @@
 				<div class="desc animate-box">
 					<h2>Voyagez à travers la France !</h2>
 					<!-- <span>Lovely Crafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FREEHTML5.co</a></span> -->
-					<span><a class="btn btn-primary btn-lg" href="#">Commencez</a></span>
+					<span><a class="btn btn-primary btn-lg" href="#ancre">Commencez</a></span>
 				</div>
 			</div>
 		</div>
 
 		<div class="fh5co-listing">
-			<div class="container">
+			<div class="container" id="ancre">
 				<div class="row">
 					<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 						<a class="fh5co-listing-item" href="/paris">
@@ -161,7 +170,7 @@
 							<div class="fh5co-listing-copy">
 								<h2>Paris</h2>
 								<span class="icon">
-									<i class="icon-chevron-right"></i>
+									<i class="fa fa-chevron-right"></i>
 								</span>
 							</div>
 						</a>
@@ -172,7 +181,7 @@
 							<div class="fh5co-listing-copy">
 								<h2>Bordeaux</h2>
 								<span class="icon">
-									<i class="icon-chevron-right"></i>
+									<i class="fa fa-chevron-right"></i>
 								</span>
 							</div>
 						</a>
@@ -183,7 +192,7 @@
 							<div class="fh5co-listing-copy">
 								<h2>Lyon</h2>
 								<span class="icon">
-									<i class="icon-chevron-right"></i>
+									<i class="fa fa-chevron-right"></i>
 								</span>
 							</div>
 						</a>
@@ -196,7 +205,7 @@
 							<div class="fh5co-listing-copy">
 								<h2>Nice</h2>
 								<span class="icon">
-									<i class="icon-chevron-right"></i>
+									<i class="fa fa-chevron-right"></i>
 								</span>
 							</div>
 						</a>
@@ -207,7 +216,7 @@
 							<div class="fh5co-listing-copy">
 								<h2>Marseille</h2>
 								<span class="icon">
-									<i class="icon-chevron-right"></i>
+									<i class="fa fa-chevron-right"></i>
 								</span>
 							</div>
 						</a>
@@ -262,10 +271,10 @@
 						<div class="col-md-6 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">
 								<a href="#"><i class="fa-brands fa-twitter"></i></a>
-								<a href="#"><i class="icon-facebook2"></i></a>
-								<a href="#"><i class="icon-instagram"></i></a>
-								<a href="#"><i class="icon-dribbble2"></i></a>
-								<a href="#"><i class="icon-youtube"></i></a>
+								<a href="#"><i class="fa-brands fa-facebook"></i></a>
+								<a href="#"><i class="fa-brands fa-instagram"></i></a>
+								<a href="#"><i class="fa-brands fa-dribbble"></i></a>
+								<a href="#"><i class="fa-brands fa-youtube"></i></a>
 							</p>
 							<p>Copyright 2024 <a href="#">Hôtel Hypnose</a>. Tout droit reservé.</p>
 						</div>
@@ -279,10 +288,10 @@
 	<!-- END fh5co-wrapper -->
 	{% block javascripts %}{% endblock %}
 
-	
+	{#
 		<script src="{{ asset('/js/modalClass.js') }}"></script>
 		<script src="{{ asset('/js/modalClassBarr.js') }}"></script>
-	
+	#}
 {% endblock %}
 
 

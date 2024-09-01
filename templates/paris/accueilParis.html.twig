@@ -20,11 +20,11 @@
 <header>
 	<div id="insideHeader" class="headerClass">
                 <div id="headerTitre" class="headerTitre">
-                    <h1>Hôtel Hypnose</h1>
+                    <a href="/Accueil"><h1>Hôtel Hypnose</h1></a>
 				</div>
                 <div id="menuParis" class="headerClass">
                     <ul>
-                        <a href="/">
+                        <a href="/Accueil">
                             <li>Accueil</li>
                         </a>
 						<a href="/paris">
@@ -41,6 +41,9 @@
                         </a>
                     </ul>
                 </div>
+						<div class="loginVisuel mt-5 justify-content-center">
+							<div class="loginName text-danger">{{ app.user }}</div>
+						</div>
             </div>
 
                 <!-- START OF THE TOGGLE -->
@@ -185,7 +188,9 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>Réservation</h3>
-					<form id="bookingForm">
+					<div class="col">{{ form(reservationHotelForm) }}</div>
+					{#}
+					<form id="bookingForm" method="post">
 						<div class="fl1">
 							<div class="tmInput">
 								<input name="Name" placeHolder="Nom:" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
@@ -198,19 +203,24 @@
 							<div class="tmInput">
 								<input name="Email" placeHolder="Email:" type="text" data-constraints="@NotEmpty @Required @Email">
 							</div>
-							<div class="tmInput mr0">
-								<input name="Hotel" placeHolder="Hotel:" type="text" data-constraints="@NotEmpty @Required">
-							</div>
+							<select name="Hotel" class="tmSelect auto" data-class=" tmSelect2" data-constraints="">
+								<option>Paris</option>
+								<option>Paris</option>
+								<option>Bordeaux</option>
+								<option>Lyon</option>
+								<option>Nice</option>
+								<option>Marseille</option>
+							</select>
 						</div>
 						<div class="clear"></div>
 						<strong>Check-in</strong>
 						<label class="tmDatepicker">
-							<input type="text" name="Check-in" placeHolder='10/05/2024' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="CheckIn" placeHolder='10/05/2024' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<strong>Check-out</strong>
 						<label class="tmDatepicker">
-							<input type="text" name="Check-out" placeHolder='20/05/2024' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="CheckOut" placeHolder='20/05/2024' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<div class="tmRadio">
@@ -253,8 +263,9 @@
 						<div class="tmTextarea">
 							<textarea name="Message" placeHolder="Message" data-constraints=''></textarea>
 						</div>
-						<a href="#" class="btn" data-type="submit">Envoyer</a>
+						<button class="btn btn-success" type="submit">Envoyer</button>
 					</form>
+					{#}
 				</div>
 				<div class="grid_5 prefix_1">
 					<h3>Bienvenus</h3>

@@ -16,11 +16,11 @@
 <header>
 			<div id="insideHeader" class="headerClass">
                 <div id="headerTitre" class="headerTitre">
-                    <h1>Hôtel Hypnose</h1>
+                    <a href="/Accueil"><h1>Hôtel Hypnose</h1></a>
 				</div>
                 <div id="menuParis" class="headerClass">
                     <ul>
-                        <a href="/">
+                        <a href="/Accueil">
                             <li>Accueil</li>
                         </a>
 						<a href="/paris">
@@ -37,6 +37,9 @@
                         </a>
                     </ul>
                 </div>
+						<div class="loginVisuel mt-5 justify-content-center">
+							<div class="loginName text-danger">{{ app.user }}</div>
+						</div>
             </div>
 
                 <!-- START OF THE TOGGLE -->

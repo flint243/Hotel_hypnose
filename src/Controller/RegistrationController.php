@@ -48,17 +48,17 @@ class RegistrationController extends AbstractController
 
             $this->em->persist($user);
             $this->em->flush();
-            $this->sendEmailService->Send($user->getEmail(), $user->getToken());
+            $this->sendEmailService->Send($user->__toString(), $user->getToken());
             $this->addFlash("messageSuccess", "Un e-mail de confirmation vient de vous etre envoyé");
 
             // generate a signed url and email it to the user
-            /*$this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('dd1acbe483d449@smtp.mailtrap.io', 'Mail'))
-                    ->to($user->getUsername())
+                    ->to($user->__toString())
                     ->subject('Confirmez votre Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
-            );*/
+            );
 
             // do anything else you need here, like send an email
 
@@ -71,9 +71,7 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/verify/email/{token}', name: 'app_verify_email')]
-    /**
-     * @Route("/confirmer-mon-compte/{token}", name="confirme_compte")
-     */
+    #[Route("/confirmer-mon-compte/{token}", name: "confirme_compte")]
     public function confirmEmail(string $token): Response
     {
         $user = $this->userRepository->findOneBy(["token" => $token]);

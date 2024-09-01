@@ -4,7 +4,9 @@
 					Contact | Hôtel Hypnose
 				{% endblock %}
 
-                {% block stylesheets %}{% endblock %}
+                {% block stylesheets %}
+				<link rel="stylesheet" href="{{ asset('/css/form.css') }}">
+				{% endblock %}
 
 
 {% block body %}
@@ -15,12 +17,12 @@
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="/">Hôtel Hypnose</a></h1>
+						<h1 id="fh5co-logo"><a href="/Accueil">Hôtel Hypnose</a></h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li>
-									<a href="Accueil">Accueil</a>
+									<a href="/Accueil">Accueil</a>
 								</li>
 								<li>
 									<a href="listing" class="fh5co-sub-ddown">Listing</a>
@@ -39,6 +41,9 @@
 						</nav>
 					</div>
 				</div>
+						<div class="loginVisuel justify-content-center">
+							<div class="loginName">{{ app.user }}</div>
+						</div>
 			</header>
 		</div>
 		
@@ -56,8 +61,6 @@
 
 		<div id="fh5co-contact" class="fh5co-section animate-box">
 			<div class="container">
-				<form action="#">
-					<div class="row">
 						<div class="col-md-6">
 							<h3 class="section-title">Notre Adresse</h3>
 							<p>24 Blvd d'Assofac.</p>
@@ -68,32 +71,8 @@
 								<li><i class="icon-globe2"></i><a href="#">www.Assofac.com</a></li>
 							</ul>
 						</div>
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Email">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="submit" value="Evoyez" class="btn btn-primary btn-lg">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
+			<div class="col">{{ form(contactForm) }}</div>
+				
 			</div>
 		</div>
 		<!-- END fh5co-contact -->
