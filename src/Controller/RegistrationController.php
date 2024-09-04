@@ -70,25 +70,35 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/confirmer-mon-compte/{token}', name: 'confirme_compte')]
-    #[Route('/Verifier-email/{token}', name: 'app_verify_email')]
-    public function confirmEmail(string $token): RedirectResponse
-    {
-        $user = $this->userRepository->findOneBy(['token' => $token]);
+    //#[Route('/confirmer-mon-compte/{token}', name: 'confirme_compte')]
+#[Route('/verifier-email/{token}', name: 'app_verify_email')]
+public function confirmEmail(string $token): RedirectResponse
+{
+    $user = $this->userRepository->findOneBy(['token' => $token]);
 
-        if ($user) {
-            $user->setToken(null);  // Suppression du token après confirmation
-            $user->setIsVerified(true);
-            $this->em->persist($user);
-            $this->em->flush();
-
-            $this->addFlash('message', 'Compte activé !');
-            return $this->redirectToRoute('accueil');
-        }
-
-        $this->addFlash('error', "Ce compte n'existe pas !");
+    if (!$user || !$this->isTokenValid($user)) {
+        $this->addFlash('error', "Ce compte n'existe pas ou le lien est expiré !");
         return $this->redirectToRoute('accueil');
     }
+
+    // Invalider le token après confirmation
+    $user->setToken(null);
+    $user->setIsVerified(true);
+    $this->em->persist($user);
+    $this->em->flush();
+
+    $this->addFlash('message', 'Compte activé !');
+    return $this->redirectToRoute('accueil');
+}
+
+private function isTokenValid(User $user): bool
+{
+    $tokenCreatedAt = $user->getTokenCreatedAt();
+    $expiryDate = (new \DateTime())->modify('-1 day'); // Expiration après 24h
+
+    return $tokenCreatedAt >= $expiryDate;
+}
+
 
     /**
      * @return string

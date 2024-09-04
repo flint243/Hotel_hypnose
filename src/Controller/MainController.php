@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class MainController extends AbstractController
 {
-        #[Route('/Accueil', name: 'Accueil')]
+        #[Route('/', name: 'Accueil')]
         public function homepage(AuthenticationUtils $authenticationUtils): Response
         {
             // get the login error if there is one

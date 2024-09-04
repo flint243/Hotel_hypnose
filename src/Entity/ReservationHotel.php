@@ -34,15 +34,13 @@ class ReservationHotel
     #[Assert\NotBlank]
     private ?string $hotel = null;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    #[Assert\NotBlank]
-    #[Assert\Date]
-    private ?\DateTimeImmutable $checkIn = null;
+    #[ORM\Column()]
+    
+    private ?\DateTime $checkIn = null;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    #[Assert\NotBlank]
-    #[Assert\Date]
-    private ?\DateTimeImmutable $checkOut = null;
+    #[ORM\Column()]
+    
+    private ?\DateTime $checkOut = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
@@ -116,23 +114,23 @@ class ReservationHotel
         return $this;
     }
 
-    public function getCheckIn(): ?\DateTimeImmutable
+    public function getCheckIn(): ?\DateTime
     {
         return $this->checkIn;
     }
 
-    public function setCheckIn(\DateTimeImmutable $checkIn): self
+    public function setCheckIn(\DateTime $checkIn): self
     {
         $this->checkIn = $checkIn;
         return $this;
     }
 
-    public function getCheckOut(): ?\DateTimeImmutable
+    public function getCheckOut(): ?\DateTime
     {
         return $this->checkOut;
     }
 
-    public function setCheckOut(\DateTimeImmutable $checkOut): self
+    public function setCheckOut(\DateTime $checkOut): self
     {
         $this->checkOut = $checkOut;
         return $this;

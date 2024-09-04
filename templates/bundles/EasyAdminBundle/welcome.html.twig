@@ -1,0 +1,35 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{% extends '@!EasyAdmin/page/content.html.twig' %}
+
+
+{% block content_title 'Bienvenu dans l\'administration de notre hôtel !' %}
+
+
+{% block main %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 alert-info">
+
+                <span class="display-3">{{ countAllUser['value'] }}</span> <span class="display-6">Utilisateurs</span>
+            </div>
+    </div>
+
+<div class="row m-0 mt-2">
+
+            <div class="col-3 m-1 alert-success">
+                <span class="display-3">{{ countAllReservation['value'] }}</span> <span class="display-6">Réservations</span>
+            </div>
+
+            <div class="col-4 m-1 alert-success">
+                <span class="display-3">{{ countAllPaiement['value']}}</span> <span class="display-6">Paiement</span>
+            </div>
+
+            <div class="col-4 m-1 alert-primary">
+                <span class="display-3">{{ countAllContact['value']}}</span> <span class="display-6">Messages / Contact</span>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

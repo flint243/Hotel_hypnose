@@ -16,6 +16,19 @@ class ReservationHotelRepository extends ServiceEntityRepository
         parent::__construct($registry, ReservationHotel::class);
     }
 
+    /**
+     * @return int/mixed/string
+     */
+    public function countAllReservation()
+    {
+        return $this->createQueryBuilder('a')
+                    ->select('COUNT(a.id) as value')
+                    ->getQuery()
+                    ->getOneOrNullResult()
+;
+
+    }
+
     //    /**
     //     * @return ReservationHotel[] Returns an array of ReservationHotel objects
     //     */

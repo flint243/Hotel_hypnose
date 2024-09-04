@@ -16,6 +16,19 @@ class PaiementRepository extends ServiceEntityRepository
         parent::__construct($registry, Paiement::class);
     }
 
+    /**
+     * @return int/mixed/string
+     */
+    public function countAllPaiement()
+    {
+        return $this->createQueryBuilder('a')
+                    ->select('COUNT(a) as value')
+                    ->getQuery()
+                    ->getOneOrNullResult()
+;
+
+    }
+
     //    /**
     //     * @return Paiement[] Returns an array of Paiement objects
     //     */
